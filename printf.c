@@ -9,7 +9,7 @@ void error_handle(int error)
 {
 	if (error == -1)
 	{
-		return (-1);
+		exit(-1);
 	}
 }
 /**
