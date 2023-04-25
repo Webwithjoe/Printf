@@ -9,8 +9,7 @@ void error_handle(int error)
 {
 	if (error == -1)
 	{
-		printf("error");
-		exit(-1);
+		return (-1);
 	}
 }
 /**
