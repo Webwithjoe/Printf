@@ -54,7 +54,7 @@ int handle_cases(const char *format, va_list arg)
 			char_counter++;
 		}
 	}
-	return (char_counter);
+	return ((int) char_counter);
 }
 
 /**
