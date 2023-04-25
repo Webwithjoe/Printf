@@ -16,11 +16,10 @@ void loop_string(char *s, int *char_counter)
 
 	for (y = 0; s[y] != '\0' && s[y] != -1; y++)
 	{
-		write(1, &s[y], 1);
+		_puts(s[y]);
 		(*char_counter)++;
 	};
 
-	write(1, "\0", 1);
 
 }
 /**
@@ -37,7 +36,7 @@ void print_null(int *char_counter)
 	i = 0;
 	while (empty[i] != '\0')
 	{
-		write(1, &empty[i], 1);
+		_puts(empty[i]);
 		(*char_counter)++;
 		i++;
 	}
@@ -94,12 +93,12 @@ int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 			if (c < 32 || c > 126)
 				return (-1);
 
-			write(1, &c, 1);
+			_puts(c);
 			(*char_counter)++;
 			(*i)++;
 			break;
 		case '%':
-			write(1, &percent_sign, 1);
+			_puts(percent_sign);
 			(*char_counter)++;
 			(*i)++;
 			break;

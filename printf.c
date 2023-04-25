@@ -74,9 +74,7 @@ int _printf(const char *format, ...)
 {
 	int char_counter;
 	va_list arg;
-	char new_line;
 
-	new_line = 10;
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 
@@ -85,7 +83,7 @@ int _printf(const char *format, ...)
 
 	va_start(arg, format);
 	char_counter = handle_cases(format, arg);
-	write(1, &new_line, 1);
+	_puts('\n');
 	va_end(arg);
 	return ((int) char_counter);
 }

@@ -63,10 +63,9 @@ void print_int(int d, int *char_counter)
 		temp = temp % 10;
 		val /= 10;
 		temp = temp + '0';
-		write(1, &temp, 1);
+		_puts(temp);
 	}
 
-	write(1, "\0", 1);
 }
 
 /**
@@ -112,8 +111,7 @@ int nums(va_list arg, int *i, int *char_counter, const char *format, int chk)
 			if (num < 0)
 			{
 				negative = '-';
-				write(1, &negative, 1);
-				write(1, "\0", 1);
+				_puts(negative);
 				(*char_counter)++;
 			}
 
