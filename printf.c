@@ -27,10 +27,20 @@ int handle_cases(const char *format, va_list arg)
 			error = strgs(arg, &i, &char_counter, format, cmp_i);
 			if (error == -1)
 				return (-1);
-			
+
 			error = nums(arg, &i, &char_counter, format, cmp_i);
 			if (error == -1)
 				return (-1);
+
+			error = handle_binary(arg, &i, &char_counter, format);
+			if (error == -1)
+				return (-1);
+
+			error = longc(arg, &i, &char_counter, format, cmp_i);
+			if (error == -1)
+				return (-1);
+
+			error = convers(arg, &i, &char_counter, format, cmp_i);
 
 			if (cmp_i == i)
 			{
