@@ -72,7 +72,7 @@ int handle_cases(const char *format, va_list arg)
  */
 int _printf(const char *format, ...)
 {
-	int char_counter1;
+	int char_counter;
 	va_list arg;
 	char new_line;
 
@@ -84,8 +84,8 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(arg, format);
-	char_counter1 = handle_cases(format, arg);
+	char_counter = handle_cases(format, arg);
 	write(1, &new_line, 1);
 	va_end(arg);
-	return (char_counter1);
+	return ((int) char_counter);
 }
