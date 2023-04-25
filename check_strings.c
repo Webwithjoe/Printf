@@ -32,10 +32,12 @@ void print_null(int *char_counter)
 	char *empty = "";
 	int i;
 
-	for (i = 0; empty[i] != '\0'; i++)
+	i = 0;
+	while (empty[i] != '\0')
 	{
-		write(1, &empty, 1);
+		write(1, &empty[i], 1);
 		(*char_counter)++;
+		i++;
 	}
 }
 
