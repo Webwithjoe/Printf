@@ -45,21 +45,11 @@ int get_val(int d, int *char_counter)
  *
  * @d: int passed
  *
- * @d1: long passed
  */
-void print_int(int d, long d1, int *char_counter)
+void print_int(int d, int *char_counter)
 {
 	int val, temp;
 
-	if (d == 0)
-	{
-		(void)d;
-		print_long(d1, char_counter);
-		return;
-	}
-
-	if (d1 == 0)
-		(void) d1;
 	if (d < 0)
 	{
 		d = -(d);
@@ -75,6 +65,8 @@ void print_int(int d, long d1, int *char_counter)
 		temp = temp + '0';
 		write(1, &temp, 1);
 	}
+
+	write(1, "\0", 1);
 }
 
 /**
@@ -99,7 +91,6 @@ int nums(va_list arg, int *i, int *char_counter, const char *format, int chk)
 {
 	char negative;
 	int num = 0;
-	long num1 = 0;
 
 	if (*i != chk)
 		return (0);
@@ -109,20 +100,24 @@ int nums(va_list arg, int *i, int *char_counter, const char *format, int chk)
 		case '+':
 		case ' ':
 			num = handle_flag(format[*i + 1], arg, char_counter);
-			print_int(num, num1, char_counter);
+			print_int(num, char_counter);
 			*i = (*i) + 2;
 			break;
 		case 'd':
 		case 'i':
 			num = va_arg(arg, int);
+			if (!num)
+				return (-1);
+
 			if (num < 0)
 			{
 				negative = '-';
 				write(1, &negative, 1);
+				write(1, "\0", 1);
 				(*char_counter)++;
 			}
 
-			print_int(num, num1, char_counter);
+			print_int(num, char_counter);
 			(*i)++;
 			break;
 		default:

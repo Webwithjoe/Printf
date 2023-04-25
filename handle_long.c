@@ -88,7 +88,7 @@ int longc(va_list arg, int *i, int *char_counter, const char *format, int chk)
 				(*char_counter)++;
 			}
 
-			print_int(num, num1, char_counter);
+			print_int(num, char_counter);
 			(*i) = (*i) + 2;
 			break;
 		default:

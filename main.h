@@ -13,7 +13,7 @@ int get_val(int d, int *char_counter);
 int handle_long(va_list arg);
 void print_long(long d, int *char_counter);
 int longc(va_list arg, int *i, int *char_counter, const char *format, int chk);
-void print_int(int d, long d1, int *char_counter);
+void print_int(int d, int *char_counter);
 int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk);
 int convers(va_list arg, int *i, int *char_counter, const char *form, int chk);
 #endif
