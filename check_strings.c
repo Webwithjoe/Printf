@@ -22,6 +22,25 @@ void loop_string(char *s, int *char_counter)
 
 }
 /**
+ * print_null - print nul string
+ *
+ * @char_counter: characters printed
+ */
+
+void print_null(int *char_counter)
+{
+	char *null = "(null)";
+	int i;
+
+	for (i = 0; null[i] != '\0'; i++)
+	{
+		write(1, &null[i], 1);
+		(*char_counter)++;
+	}
+
+}
+
+/**
  * strgs - check cases of each specifier
  *
  * check cases of strings, characters and %
@@ -57,7 +76,11 @@ int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 		case 's':
 			s = va_arg(arg, char *);
 			if (s == NULL)
-				return (-1);
+			{
+				print_null(char_counter);
+				(*i)++;
+				return (0);
+			}
 
 			loop_string(s, char_counter);
 			(*i)++;

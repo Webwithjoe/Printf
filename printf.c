@@ -2,19 +2,6 @@
 #include <limits.h>
 
 /**
- * error_handle - handle errors
- *
- * @error: receive error value
- */
-void error_handle(int error)
-{
-	if (error == -1)
-	{
-		exit(-1);
-	}
-}
-
-/**
  * handle_cases - check all cases
  *
  * call different functions to check
@@ -38,7 +25,8 @@ int handle_cases(const char *format, va_list arg)
 		{
 			cmp_i = i;
 			error = strgs(arg, &i, &char_counter, format, cmp_i);
-			error_handle(error);
+			if (error == -1)
+				return (-1);
 
 			if (cmp_i == i)
 			{
