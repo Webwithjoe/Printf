@@ -29,15 +29,14 @@ void loop_string(char *s, int *char_counter)
 
 void print_null(int *char_counter)
 {
-	char *null = "(null)";
+	char *empty = "";
 	int i;
 
-	for (i = 0; null[i] != '\0'; i++)
+	for (i = 0; empty[i] != '\0'; i++)
 	{
-		write(1, &null[i], 1);
+		write(1, &empty, 1);
 		(*char_counter)++;
 	}
-
 }
 
 /**
