@@ -14,6 +14,9 @@ int main(void)
     unsigned int ui;
     void *addr;
     
+    _printf("Current output:%c\n");
+    printf("Current output:%c\n");
+
     len = _printf("Let's try to printf %s a simple %c sentence %d hhsj %i asdf %s.\n", "ahmed", 'r', 2343, 23, "as");
     len2 = printf("Let's try to printf %s a simple %c sentence %d hhsj %i asdf %s.\n", "ahmed", 'r', 2343, 23, "as");
     printf("%d, %d\n",len,len2);
