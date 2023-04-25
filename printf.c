@@ -26,10 +26,7 @@ int handle_cases(const char *format, va_list arg)
 			cmp_i = i;
 			error = strgs(arg, &i, &char_counter, format, cmp_i);
 			if (error == -1)
-			{
-				char_counter = char_counter + 2;
-			}
-
+				return (-1);
 
 			error = nums(arg, &i, &char_counter, format, cmp_i);
 			if (error == -1)
@@ -80,7 +77,10 @@ int _printf(const char *format, ...)
 	char new_line;
 
 	new_line = 10;
-	if (format == NULL)
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
 
 	va_start(arg, format);

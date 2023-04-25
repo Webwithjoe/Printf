@@ -29,7 +29,7 @@ void loop_string(char *s, int *char_counter)
 
 void print_null(int *char_counter)
 {
-	char *empty = "";
+	char *empty = "(null)";
 	int i;
 
 	i = 0;
@@ -80,12 +80,11 @@ int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 			{
 				print_null(char_counter);
 				(*i)++;
-				return (0);
+				return (-1);
 			}
-
-			loop_string(s, char_counter);
-			(*i)++;
-			break;
+				loop_string(s, char_counter);
+				(*i)++;
+				break;
 		case 'c':
 			c = va_arg(arg, int);
 			if (c < 32 || c > 126)
