@@ -80,7 +80,7 @@ int _printf(const char *format, ...)
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 
-	if (format == NULL || (format[0] == '%' && !format[1]))
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
 	va_start(arg, format);
