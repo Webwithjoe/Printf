@@ -20,6 +20,8 @@ void loop_string(char *s, int *char_counter)
 		(*char_counter)++;
 	};
 
+	write(1, "\0", 1);
+
 }
 /**
  * print_null - print nul string
@@ -39,6 +41,8 @@ void print_null(int *char_counter)
 		(*char_counter)++;
 		i++;
 	}
+
+	write(1, "\0", 1);
 }
 
 /**
