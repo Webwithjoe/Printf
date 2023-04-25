@@ -1,6 +1,18 @@
 #include "main.h"
 #include <limits.h>
 /**
+ * error_handle - handle errors
+ *
+ * @error: receive error value
+ */
+void error_handle(int error)
+{
+	if (error == -1)
+	{
+		exit(-1);
+	}
+}
+/*
  * handle_cases - check all cases
  *
  * call different functions to check
@@ -15,7 +27,7 @@
 
 int handle_cases(const char *format, va_list arg)
 {
-	int i, cmp_i, char_counter;
+	int i, cmp_i, char_counter, error;
 
 	char_counter = 0;
 	for (i = 0; format[i] != '\0'; i++)
@@ -23,8 +35,9 @@ int handle_cases(const char *format, va_list arg)
 		if (format[i] == '%')
 		{
 			cmp_i = i;
-			strgs(arg, &i, &char_counter, format, cmp_i);
-
+			error = strgs(arg, &i, &char_counter, format, cmp_i);
+			error_handle(error);
+			
 			if (cmp_i == i)
 			{
 				write(1, &format[i], 1);

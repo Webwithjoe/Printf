@@ -45,7 +45,8 @@ void loop_string(char *s, int *char_counter)
 
 int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 {
-	char *s, c, percent_sign;
+	char *s, percent_sign;
+	int c;
 
 	percent_sign = '%';
 	if (*i != chk)
@@ -63,6 +64,9 @@ int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 			break;
 		case 'c':
 			c = va_arg(arg, int);
+			if (c < 32 || c > 126)
+				return (-1);
+
 			write(1, &c, 1);
 			(*char_counter)++;
 			(*i)++;
