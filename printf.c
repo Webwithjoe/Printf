@@ -27,6 +27,10 @@ int handle_cases(const char *format, va_list arg)
 			error = strgs(arg, &i, &char_counter, format, cmp_i);
 			if (error == -1)
 				return (-1);
+			
+			error = nums(arg, &i, &char_counter, format, cmp_i);
+			if (error == -1)
+				return (-1);
 
 			if (cmp_i == i)
 			{
