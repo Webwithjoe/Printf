@@ -14,7 +14,7 @@ void loop_string(char *s, int *char_counter)
 {
 	int y;
 
-	for (y = 0; s[y] != '\0'; y++)
+	for (y = 0; s[y] != '\0' && s[y]; y++)
 	{
 		write(1, &s[y], 1);
 		(*char_counter)++;
