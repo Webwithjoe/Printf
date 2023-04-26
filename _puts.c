@@ -8,8 +8,7 @@
  */
 void _puts(char c)
 {
-	write(1, &c, 1);;
-	write(1, "\0", 1);;
-
+	write(1, &c, 1);
+	write(1, "\0", 1);
 }
 
