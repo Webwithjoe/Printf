@@ -14,13 +14,13 @@ void loop_string(char *s, int *char_counter)
 {
 	int y;
 
-	for (y = 0; s[y] != '\0' && s[y] != -1; y++)
+	for (y = 0; s[y] != '\0'; y++)
 	{
-		_puts(s[y]);
+		write(1, &s[y], 1);
 		(*char_counter)++;
 	};
 
-
+	write(1, "\0", 1);
 }
 /**
  * print_null - print nul string
@@ -34,15 +34,43 @@ void print_null(int *char_counter)
 	int i;
 
 	i = 0;
-	while (empty[i] != '\0')
+	while (empty[i] != '\0' && char_counter != NULL)
 	{
-		_puts(empty[i]);
+		write(1, &empty[i], 1);
 		(*char_counter)++;
 		i++;
 	}
 
 	write(1, "\0", 1);
+
 }
+
+/**
+ * handle_string - handle s case
+ *
+ * @char_counter: characters printed
+ *
+ * @i: main counter for loop
+ *
+ * @arg: arguments received;
+ */
+void handle_string(va_list arg, int *char_counter, int *i)
+{
+	char *s;
+
+	s = va_arg(arg, char *);
+	if (s == NULL)
+	{
+		print_null(char_counter);
+		(*i)++;
+		return;
+	}
+
+	loop_string(s, char_counter);
+	(*i)++;
+
+}
+
 
 /**
  * strgs - check cases of each specifier
@@ -68,7 +96,7 @@ void print_null(int *char_counter)
 
 int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 {
-	char *s, percent_sign;
+	char percent_sign;
 	int c;
 
 	percent_sign = '%';
@@ -78,30 +106,25 @@ int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk)
 	switch (format[*i + 1])
 	{
 		case 's':
-			s = va_arg(arg, char *);
-			if (s == NULL)
-			{
-				print_null(char_counter);
-				(*i)++;
-				return (-1);
-			}
-				loop_string(s, char_counter);
-				(*i)++;
-				break;
+			handle_string(arg, char_counter, i);
+			break;
 		case 'c':
 			c = va_arg(arg, int);
 			if (c < 32 || c > 126)
 				return (-1);
 
-			_puts(c);
+			write(1, &c, 1);
 			(*char_counter)++;
 			(*i)++;
 			break;
 		case '%':
-			_puts(percent_sign);
+			write(1, &percent_sign, 1);
 			(*char_counter)++;
 			(*i)++;
 			break;
+		case '\0':
+			(*i)++;
+			return (-1);
 		default:
 			break;
 	}

@@ -6,8 +6,10 @@
  * Return: On success 1.
  *
  */
-int _puts(char c)
+void _puts(char c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);;
+	write(1, "\0", 1);;
+
 }
 

@@ -16,5 +16,5 @@ int longc(va_list arg, int *i, int *char_counter, const char *format, int chk);
 void print_int(int d, int *char_counter);
 int strgs(va_list arg, int *i, int *char_counter, const char *format, int chk);
 int convers(va_list arg, int *i, int *char_counter, const char *form, int chk);
-int _puts(char c);
+void _puts(char c);
 #endif
