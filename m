@@ -3,7 +3,7 @@ int main()
 {
 	int len, len2; 
 	
-	/* case digit */
+	/* case digit for main */
 	len = _printf("number:%d bla\n",1232);
 	len2 = printf("number:%d bla\n",1232);
 	printf("length: %d\n", len);
