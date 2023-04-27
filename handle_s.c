@@ -13,7 +13,7 @@ void print_n(void)
 	}
 }
 /**
- * handle_s - prints passed string as arg
+ * handle_s - prints passed string as argument
  *
  * @arg: received argument
  *
