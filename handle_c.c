@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * handle_c - prints passed character as arg
+ * handle_c - prints passed character as argument
  *
  * @arg: received argument
  *
