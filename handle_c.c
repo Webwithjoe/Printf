@@ -18,8 +18,11 @@ int handle_c(va_list arg)
 		{
 			_putchar('\n');
 			return (1);
-		}
-		else
+		} else if (c == 0)
+		{
+			_putchar('\0');
+			return (1);
+		} else
 			return (-1);
 	}
 

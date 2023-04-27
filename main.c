@@ -9,9 +9,10 @@
  */
 int main(void)
 {
-	char *str = "You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.You are not allowed to publish any content of this project.Any form of plagiarism is strictly forbidden and will result in removal from the program.";
+	int len, len2;
+	/*char *str = "You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.You are not allowed to publish any content of this project.Any form of plagiarism is strictly forbidden and will result in removal from the program.";
   
-	_printf("Let's print a simple sentence.\n");
+    _printf("Let's print a simple sentence.\n");
     _printf("%c", 'S');
     printf("\n");
     _printf("A char inside a sentence: %c. Did it work?\n", 'F');
@@ -38,6 +39,20 @@ int main(void)
       
     _printf("%K\n");
 
-    _printf("man gcc:\n%s", str);
+    _printf("man gcc:\n%s", str);*/
+	len = _printf(NULL);
+	len2 = printf(NULL);
+	printf("%d", len);
+	printf("\n");
+	printf("%d", len2);
+	printf("\n");
+	
+	len = _printf("%c", '\0');
+	len2 = printf("%c", '\0');
+	printf("%d", len);
+	printf("\n");
+	printf("%d", len2);
+	printf("\n");
+
     return (0);
 }
