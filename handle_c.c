@@ -15,7 +15,10 @@ int handle_c(va_list arg)
 	if (c < 32 || c > 126)
 	{
 		if (c == 10)
+		{
 			_putchar('\n');
+			return (1);
+		}
 		else
 			return (-1);
 	}
