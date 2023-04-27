@@ -60,16 +60,15 @@ int format_checker(const char *format)
   */
 int _printf(const char *format, ...)
 {
-	/*char c;*/
 	va_list arg;
-	int (*redirect_p)(va_list arg), count, error_checker, format_val;
+	int (*redirect_p)(va_list arg), count, error_checker, format_val, ch;
 
 	format_val = format_checker(format);
 	if (format_val == -1)
 		return (-1);
 
 	va_start(arg, format);
-	count = 0;
+	count = ch = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -89,9 +88,10 @@ int _printf(const char *format, ...)
 				count += error_checker;
 				format++;
 				format++;
+				ch = 1;
 			}
 		}
-		if (*format == '\0' || *format == '%')
+		if (*format == '\0' || (*format == '%' && ch == 1))
 			continue;
 
 		_putchar(*format);
