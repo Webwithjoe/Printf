@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <unistd.h>
 /**
- * struct Node - Struct definition
+ * struct Node - Definition for Struct
  *
  * @s: The operator
  *
