@@ -1,103 +1,67 @@
 #include "main.h"
+
+void print_buffer(char buffer[], int *buff_ind);
+
 /**
-  * redirect - check case an redirect
-  * to corresponding function
-  *
-  * @c: character for case to check
-  * examples: c s d i %
-  *
-  * Return: pointer to corresponding functions
-  */
-int (*redirect(const char *c))(va_list arg)
-{
-	int i;
-	node n[] = {
-		{"s", handle_s},
-		{"c", handle_c},
-		{"%", handle_p},
-		{"d", handle_d},
-		{"i", handle_d},
-		{NULL, NULL}
-	};
-	for (i = 0; i < 5; i++)
-	{
-		if (n[i].s[0] == c[1] && n[i].s != NULL)
-		{
-			return (n[i].f);
-		}
-	}
-
-	return (NULL);
-}
-/**
-  * format_checker - checks if format null
-  *
-  * @format: string passed first argument
-  *
-  * Return: 0 on success and -1 in case of error
-  */
-
-int format_checker(const char *format)
-{
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-
-	return (0);
-}
-/**
-  * _printf - print all characters passed
-  *
-  * @format: string passed first argument
-  *
-  * if % is found we check character after %
-  * and we store it in c and send it to
-  * redirect
-  *
-  * Return: count
-  */
+ * _printf - Printf function
+ * @format: format.
+ * by Ahmed and Joseph
+ * Return: Printed chars.
+ */
 int _printf(const char *format, ...)
 {
-	va_list arg;
-	int (*redirect_p)(va_list arg), count, error_checker, format_val, ch;
+	int i, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
-	format_val = format_checker(format);
-	if (format_val == -1)
+	if (format == NULL)
 		return (-1);
 
-	va_start(arg, format);
-	count = ch = 0;
-	while (*format != '\0')
+	va_start(list, format);
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			if (*(format + 1) == '\0')
-			{
-				format++;
-				return (-1);
-			}
-
-			redirect_p = redirect(format);
-			if (redirect_p != NULL)
-			{
-				error_checker = redirect_p(arg);
-				if (error_checker == -1)
-					return (-1);
-				count += error_checker;
-				format++;
-				format++;
-				ch = 1;
-			}
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[i], 1);*/
+			printed_chars++;
 		}
-		if (*format == '\0' || (*format == '%' && ch == 1))
-			continue;
-
-		_putchar(*format);
-		count++;
-		format++;
+		else
+		{
+			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &i);
+			width = get_width(format, &i, list);
+			precision = get_precision(format, &i, list);
+			size = get_size(format, &i);
+			++i;
+			printed = handle_print(format, &i, list, buffer,
+					       flags, width, precision, size);
+			if (printed == -1)
+				return (-1);
+			printed_chars += printed;
+		}
 	}
-	va_end(arg);
-	return (count);
+
+	print_buffer(buffer, &buff_ind);
+
+	va_end(list);
+
+	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints buffer content
+ * @buffer: Array of chars
+ * @buff_ind: Index to add next char
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
