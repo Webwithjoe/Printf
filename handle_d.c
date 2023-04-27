@@ -2,7 +2,7 @@
 /**
  * check_num - cases 0 and negative
  *
- * @num: receive num
+ * @num: receive number
  *
  * Return: count printed if exists
  */
