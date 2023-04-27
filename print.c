@@ -6,7 +6,7 @@
   * @c: character for case to check
   * examples: c s d i %
   *
-  * Return: pointer to corresponding function
+  * Return: pointer to corresponding functions
   */
 int (*redirect(const char *c))(va_list arg)
 {
