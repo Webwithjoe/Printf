@@ -40,7 +40,7 @@ int main(void)
     _printf("%K\n");
 
     _printf("man gcc:\n%s", str);*/
-	len = _printf(NULL);
+	/*len = _printf(NULL);
 	len2 = printf(NULL);
 	printf("%d", len);
 	printf("\n");
@@ -49,6 +49,26 @@ int main(void)
 	
 	len = _printf("%c", '\0');
 	len2 = printf("%c", '\0');
+	printf("%d", len);
+	printf("\n");
+	printf("%d", len2);
+	printf("\n");*/
+    len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
+    len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
+	printf("%d", len);
+	printf("\n");
+	printf("%d", len2);
+	printf("\n");
+    
+    len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+     len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	printf("%d", len);
+	printf("\n");
+	printf("%d", len2);
+	printf("\n");
+    
+    len = _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+    len2 = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	printf("%d", len);
 	printf("\n");
 	printf("%d", len2);

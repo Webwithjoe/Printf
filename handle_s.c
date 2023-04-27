@@ -29,7 +29,7 @@ int handle_s(va_list arg)
 	if (str == NULL)
 	{
 		print_n();
-		return (0);
+		return (6);
 	}
 
 	while (*str != '\0')
