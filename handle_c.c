@@ -13,7 +13,12 @@ int handle_c(va_list arg)
 
 	c = va_arg(arg, int);
 	if (c < 32 || c > 126)
-		return (-1);
+	{
+		if (c == 10)
+			_putchar('\n');
+		else
+			return (-1);
+	}
 
 	_putchar(c);
 	return (1);

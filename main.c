@@ -32,6 +32,5 @@ int main(void)
     _printf("%!\n");
     _printf("%K\n");
 
-
     return (0);
 }
