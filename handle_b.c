@@ -77,7 +77,7 @@ int handle_b(va_list arg)
 	if (num == 0)
 	{
 		_putchar(0 + '0');
-		return (0);
+		return (1);
 	}
 	if (num < 0)
 		num = -(int)num;
