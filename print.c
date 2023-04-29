@@ -18,9 +18,10 @@ int (*redirect(const char *c))(va_list arg)
 		{"d", handle_d},
 		{"i", handle_d},
 		{"b", handle_b},
+		{"r", handle_r},
 		{NULL, NULL}
 	};
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 	{
 		if (n[i].s[0] == c[1] && n[i].s != NULL)
 		{

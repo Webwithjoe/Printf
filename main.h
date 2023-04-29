@@ -24,4 +24,5 @@ int handle_c(va_list arg);
 int handle_p(va_list arg);
 int handle_d(va_list arg);
 int handle_b(va_list arg);
+int handle_r(va_list arg);
 #endif
