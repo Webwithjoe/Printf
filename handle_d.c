@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * check_num - cases 0 and negative
+ * check_num - case 0 and negative
  *
  * @num: receive num
  *
@@ -26,7 +26,7 @@ int check_num(int num)
 /**
  * handle_long - long case
  *
- * @num: receive num
+ * @num: receive number
  *
  * Return: count numbers
  */
