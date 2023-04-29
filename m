@@ -12,7 +12,7 @@ int main()
 	/* case unknown */
 	_printf("%r\n"); 
 	
-	/* case unknown */
+	/* unknown case */
 	_printf("c is cool %k but why not working");
 
 	 /* case char */
@@ -31,7 +31,7 @@ int main()
 	 /* case string NULL */ 
 	_printf("%s\n", NULL);
 	printf("\n");
-	/* case % at the end of argument */
+	/* case % at the end of arg */
 	_printf("m and x are cool %");
 	_printf("\n");
 
