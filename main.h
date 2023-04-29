@@ -10,7 +10,7 @@
  *
  * @s: The operator
  *
- * @f: The function associated
+ * @f: The associated function
  */
 typedef struct Node
 {
