@@ -61,7 +61,7 @@ void convert_negative(int *binary_number, int x)
 }
 
 /**
- * handle_b - prints passed character as arg
+ * handle_b - prints passed character as arguments
  *
  * @arg: received argument
  *
