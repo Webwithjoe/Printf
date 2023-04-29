@@ -2,7 +2,7 @@
 /**
  * handle_c - prints passed character as arg
  *
- * @arg: received argument
+ * @arg: argument received
  *
  * Return: count which is one character passed
  */
